@@ -9,3 +9,11 @@ This package extends those classes to implement:
 - mode (`mode`)
 - quantiles (`quantile:`) to calculate any quantile and shortcut messages to access the first and third quartile (`firstQuartile` & `thirdQuartile`)
 
+## Installation
+
+```smalltalk
+Metacello new
+  baseline: 'Statistics';
+  repository: 'github://ctSkennerton/Pharo-Statistics/src';
+  load.
+```

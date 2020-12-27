@@ -37,21 +37,12 @@ Collection >> mode [
 	"answers with the most common value in a collection.
 	
 	If there are values that are equally common then the one that is 
-	encountered first is returned
+	smallest is returned.
 	
 	Examples:
 	#(1 2 2 2 3 4 5) mode  >>> 2
 	
-	#(5 5 1 1 2 3 4) mode  >>> 5
+	#(5 5 1 1 2 3 4) mode  >>> 1
 	"
-		
-	| maxVal maxKey dict |
-	
-	dict := Dictionary new.
-	self do: [ :i | dict at: i update: [ :value | value + 1 ] initial: [ 1 ] ].
-	maxVal := 0.
-	maxKey := nil.
-	
-	dict keysAndValuesDo:  [ :k :v | v > maxVal ifTrue: [ maxVal := v. maxKey := k ] ].
-	^maxKey
+	^(self asBag sortedCounts at: 1) value.
 ]
